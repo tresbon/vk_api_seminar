@@ -3,17 +3,22 @@ import this
 
 #Интендация
 def func():
+    '''4 пробела для отделения внутренней логики функций и циклов'''
     make = None
     return make
 
-#OOP
+# Объекты и ссылки
 a = 1
 id(a)
 b = a
+print (a,b)
+id(b) # b ссылается на то же место в памяти, что и a
+a = 2
+print (a, b)
+b = b.copy() # создаётся новый объект
 id(b)
 dir(b)
 del(a,b)
-isinstance(b, int)
 
 #Числовые типы
 type(a)
@@ -27,14 +32,18 @@ int(a)+b
 a*b
 int(a) * 3 / 2 * b
 int(a) * 3 // 2 * b #Получение остатка
-int(a) * 3 ** (2 * b)
+int(a) * 3 ** (2 * b) # Возведение в степень
 
 #Строки
 a = str(a)
 b = 'Lorem ipsum'
 a + ' ' + b
+# Действия над стоками
 ' '.join([a,b,b,a])
+# Форматирование 
 'The number is {}'.format(a)
+'The number is %s' % a
+f'The number is {a}' #Python 3.6 и выше
 
 #Boolean
 True
@@ -65,9 +74,13 @@ while i<5:
     i+=1
     #if i>3:
         #break
+else:
+    print('While ended')
 
 for i in 'abc':
     print(i)
+else:
+    pass
 
 #None
 None == True
