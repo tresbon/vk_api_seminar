@@ -8,7 +8,11 @@ from json import dumps, loads
 account_id = 1900002052
 client_id = 1604825502
 
-# Пишем первый запрос
+'''Пишем первый запрос
+Собираем все рекламные объявления в кабинете методом getAds
+'''
+
+#Создаём переменную с параметрами запроса
 params = {
     'account_id':account_id,
     'include_deleted':0,
@@ -22,9 +26,10 @@ r = post('https://api.vk.com/method/ads.getAds',data=params)
 r.text
 loads(r.text)
 
-# Оборачиваем запрос в функцию
-
-def get_ads(account_id=account_id, client_id=client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0):
+'''Оборачиваем запрос в функцию
+'''
+def get_ads(account_id = account_id, client_id=client_id, campaign_ids = 'null', 
+            ad_ids = 'null', token = token, include_deleted = 0):
     params = {
     'account_id': account_id,
     'client_id': client_id,
@@ -36,7 +41,7 @@ def get_ads(account_id=account_id, client_id=client_id, campaign_ids='null', ad_
     }
     return (loads(post('https://api.vk.com/method/ads.getAds',data=params).text))
 
-#Запускаем функцию
+#Запускаем функцию c параметрами по умолчанию
 get_ads()
 
 get_ads(account_id=account_id, client_id=client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0)
