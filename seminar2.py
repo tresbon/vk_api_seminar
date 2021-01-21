@@ -44,10 +44,16 @@ def get_ads(account_id = account_id, client_id=client_id, campaign_ids = 'null',
 #Запускаем функцию c параметрами по умолчанию
 get_ads()
 
-get_ads(account_id=account_id, client_id=client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0)
+get_ads(account_id = account_id, client_id =client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0)
 
 #Собираем данные в список
 [i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9]
+
+#Обоже, что это? Сейчас объясню! Это короткая запись такого цикла for:
+l = []
+for ad in get_ads(1900002052,1604825502)['response']:
+    if ad['ad_format'] == 9:
+        l.append(ad)
 
     
 
