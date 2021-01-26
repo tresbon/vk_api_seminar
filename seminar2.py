@@ -64,7 +64,7 @@ def get_api(params: dict, method:str = 'ads.getAds', token = token), v: str = '5
     return (loads(post(f'https://api.vk.com/method/{method}',data=params).text))
     
 
-#Собираем статистику по промо-постам
+#Собираем статистику по промо-постам новой функцией
 params = {
 'account_id':1900002052,
 'ids_type':'ad',
@@ -72,4 +72,6 @@ params = {
 'v':'5.85',
 'access_token':token
 }
-loads(post('https://api.vk.com/method/ads.getPostsReach',data=params).text)
+#Запишем в переменнуж
+posts_reach = get_api(params, 'ads.getPostsReach')
+
