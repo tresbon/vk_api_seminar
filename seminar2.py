@@ -88,3 +88,6 @@ posts_reach = get_api(params, 'ads.getPostsReach')
 #Декорируем функцию
 def to_pandas(func, *args):
     return pd.DataFrame(func(args))
+
+class VKAPIRequest():
+    pass
