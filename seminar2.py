@@ -92,5 +92,5 @@ def to_pandas(func, *args):
 class VKAPIRequest():
     
     params = dict()
-    def request(api_method: str, params):
+    def request(api_method: str, params: dict = self.params):
         return post(f'https://api.vk.com/method/{api_method}',data=params)
