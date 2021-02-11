@@ -92,5 +92,22 @@ def to_pandas(func, *args):
 class VKAPIRequest():
     
     params = dict()
+    token = str()
+    account_id = int()
+    
+    def __init__(self, token, account_id):
+        self.token = token
+        self.account_id = account_id
+    
     def request(api_method: str, params: dict = self.params):
-        return post(f'https://api.vk.com/method/{api_method}',data=params)
+        return loads(post(f'https://api.vk.com/method/{api_method}',data=params))
+    
+    def post_reach(post_ids:list):
+        params = {
+        'account_id':self.account_id,
+        'ids_type':'ad',
+        'ids':[i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9],
+        'v':'5.85',
+        'access_token':token,
+        }
+        return self.request('request',params)
