@@ -111,3 +111,6 @@ class VKAPIRequest():
         'access_token':token,
         }
         return self.request('request',params)
+    
+    def ads_stats(ads.ids = 0):
+        pass
