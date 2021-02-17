@@ -112,5 +112,35 @@ class VKAPIRequest():
         }
         return self.request('request',params)
     
-    def ads_stats(ads.ids = 0):
+    def get_ads_stats(ids = 0):
+        pass
+    
+    def get_demographics():
+        pass
+    
+    def get_extetended_stats():
+        '''
+        Gets extended stats by multiplying stats on demographics
+        '''
+        pass
+
+    def get_ads(ads = 0):
+        pass
+    
+    def create_ads():
+        pass
+    
+    def create_campaigns():
+        pass
+    
+    def create_lookalike_request():
+        pass
+    
+    def create_target_group():
+        pass
+    
+    def create_target_pixel():
+        pass
+    
+    def get_targeting_stats():
         pass
