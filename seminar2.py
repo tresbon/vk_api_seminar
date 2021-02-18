@@ -91,13 +91,15 @@ def to_pandas(func, *args):
 
 class VKAPIRequest():
     
-    params = dict()
-    token = str()
-    account_id = int()
+    params: dict = dict()
+    token: str = str()
+    account_id: int = int()
+    version: str = str()
     
-    def __init__(self, token, account_id):
+    def __init__(self, token:str, account_id:int, version:str):
         self.token = token
         self.account_id = account_id
+        self.version = version
     
     def request(api_method: str, params: dict = self.params):
         return loads(post(f'https://api.vk.com/method/{api_method}',data=params))
