@@ -89,17 +89,22 @@ posts_reach = get_api(params, 'ads.getPostsReach')
 def to_pandas(func, *args):
     return pd.DataFrame(func(args))
 
+class VKAPIToken(str):
+    pass
+
 class VKAPIRequest():
     
     params: dict = dict()
     token: str = str()
     account_id: int = int()
+    client_id: int = int()
     version: str = str()
     
-    def __init__(self, token:str, account_id:int, version:str):
+    def __init__(self, token:str, account_id:int, version:str, client_id:int):
         self.token = token
         self.account_id = account_id
         self.version = version
+        self.client_id = client_id
     
     def request(api_method: str, params: dict = self.params):
         return loads(post(f'https://api.vk.com/method/{api_method}',data=params))
@@ -108,14 +113,26 @@ class VKAPIRequest():
         params = {
         'account_id':self.account_id,
         'ids_type':'ad',
-        'ids':[i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9],
+        'ids':[i['id'] for i in self.get_ads_stats(*post_ids)['response'] if i['ad_format']==9],
         'v':'5.85',
-        'access_token':token,
+        'access_token': self.token,
         }
-        return self.request('request',params)
+        return self.request('ads.getPostsReach',params)
     
-    def get_ads_stats(ids = 0):
-        pass
+    def get_ads_stats(self,
+            campaign_ids = 'null', 
+            ad_ids = 'null',
+            include_deleted = 0):
+        params = {
+        'account_id': self.account_id,
+        'client_id': self.client_id,
+        'include_deleted': include_deleted,
+        'campaign_ids': campaign_ids,
+        'ad_ids': ad_ids,
+        'v': self.version,
+        'access_token': self.token
+        }
+    return self.request('ads.getAds',params=params)
     
     def get_demographics():
         pass
