@@ -135,8 +135,9 @@ class VKAPIRequest():
     return self.request('ads.getAds',params=params)
     
     def get_demographics():
-        pass
-    
+        '''Collect demographic'''
+        params = {}
+
     def get_extetended_stats():
         '''
         Gets extended stats by multiplying stats on demographics
