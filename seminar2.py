@@ -132,11 +132,21 @@ class VKAPIRequest():
         'v': self.version,
         'access_token': self.token
         }
-    return self.request('ads.getAds',params=params)
+        return self.request('ads.getAds',params=params)
     
-    def get_demographics():
+    def get_demographics(self,
+        campaign_ids = 'null', 
+        ad_ids = 'null'):
         '''Collect demographic'''
-        params = {}
+        params = {
+        'account_id': self.account_id,
+        'client_id': self.client_id,
+        'campaign_ids': campaign_ids,
+        'ad_ids': ad_ids,
+        'v': self.version,
+        'access_token': self.token
+        }
+        return self.request('ads.getDemogtaphics',params=params)
 
     def get_extetended_stats():
         '''
