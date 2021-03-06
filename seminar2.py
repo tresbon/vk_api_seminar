@@ -155,9 +155,11 @@ class VKAPIRequest():
         pass
 
     def get_ads(ads = 0):
+        """Gets ads info"""
         pass
     
     def create_ads():
+        """Creates ad"""
         pass
     
     def create_campaigns():
