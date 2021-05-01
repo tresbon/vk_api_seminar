@@ -112,6 +112,7 @@ params = {
 'v':'5.85',
 'access_token':token
 }
+
 #Запишем в переменнуж
 posts_reach = get_api(params, 'ads.getPostsReach')
 
