@@ -63,7 +63,7 @@ r = post('https://api.vk.com/method/ads.getAds',data=params)
 dir(r) #Смотрим какие свойства есть у объекта
 r.text #В text содержится ответ в формате JSON-строки
 loads(r.text) #Переводим JSON строку в словарь
-r.json #Другой способ
+r.json() #Другой способ
 
 
 '''Оборачиваем запрос в функцию
@@ -86,14 +86,15 @@ get_ads()
 
 get_ads(account_id = account_id, client_id =client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0)
 
-#Собираем данные в список
+#Собираем данные промопостов в список при помощи генератора
 [i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9]
 
 #Обоже, что это? Сейчас объясню! Это короткая запись такого цикла for:
-l = []
-for ad in get_ads(1900002052,1604825502)['response']:
-    if ad['ad_format'] == 9:
-        l.append(ad)
+l = [] # создаём список
+for ad in get_ads(1900002052,1604825502)['response']: #для данных из выбранных кампаний
+    if ad['ad_format'] == 9: #если объявление - промопост
+        l.append(ad) #добавить данные в список
+#генераторы - лаконичный способ создавать коллекции: словари, списки, кортежи
 
 #Сделаем более общую функцию для запросов к API
 def get_api(params: dict, method:str = 'ads.getAds', token = token), v: str = '5.85':
@@ -109,11 +110,9 @@ params = {
 'account_id':1900002052,
 'ids_type':'ad',
 'ids':[i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9],
-'v':'5.85',
-'access_token':token
 }
 
-#Запишем в переменнуж
+#Запишем в переменную
 posts_reach = get_api(params, 'ads.getPostsReach')
 
 #Декорируем функцию
