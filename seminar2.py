@@ -106,6 +106,7 @@ def get_api(params: dict, method:str = 'ads.getAds', token = token), v: str = '5
     
 
 #Собираем статистику по промо-постам новой функцией
+
 params = {
 'account_id':1900002052,
 'ids_type':'ad',
