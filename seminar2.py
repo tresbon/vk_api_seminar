@@ -48,7 +48,8 @@ dict - словарь, набор пар ключ-значение. Ключом
 
 """
 
-'''Пишем первый запрос
+'''
+Пишем первый запрос
 Собираем все рекламные объявления в кабинете методом getAds
 '''
 
@@ -101,10 +102,12 @@ for ad in get_ads(1900002052,1604825502)['response']: #для данных из 
 
 #Сделаем более общую функцию для запросов к API
 def get_api(params: dict, method:str = 'ads.getAds', token = token), v: str = '5.85':
+        
     params = {
-    'v':v,
+    'v': v,
     'access_token': token
     }.update(params)
+    
     return (loads(post(f'https://api.vk.com/method/{method}',data=params).text))
     
 
@@ -113,7 +116,7 @@ def get_api(params: dict, method:str = 'ads.getAds', token = token), v: str = '5
 params = {
 'account_id':1900002052,
 'ids_type':'ad',
-'ids':[i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9],
+'ids':[i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format'] == 9],
 }
 
 #Запишем в переменную
