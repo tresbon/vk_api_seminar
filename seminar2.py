@@ -74,6 +74,7 @@ r.json() #Другой способ
 '''
 def get_ads(account_id = account_id, client_id=client_id, campaign_ids = 'null', 
             ad_ids = 'null', token = token, include_deleted = 0):
+
     params = {
     'account_id': account_id,
     'client_id': client_id,
