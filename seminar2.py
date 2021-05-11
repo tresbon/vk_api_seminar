@@ -70,10 +70,16 @@ loads(r.text) #Переводим JSON строку в словарь
 r.json() #Другой способ
 
 
-'''Оборачиваем запрос в функцию
 '''
-def get_ads(account_id = account_id, client_id=client_id, campaign_ids = 'null', 
-            ad_ids = 'null', token = token, include_deleted = 0):
+Оборачиваем запрос в функцию
+'''
+
+def get_ads(account_id = account_id, 
+            client_id=client_id, 
+            campaign_ids = 'null', 
+            ad_ids = 'null', 
+            token = token, 
+            include_deleted = 0):
 
     params = {
     'account_id': account_id,
