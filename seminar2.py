@@ -60,14 +60,22 @@ params = {
     'campaign_ids':'null',
     'ad_ids':'null',
     'v':'5.85',
-    'access_token':token
+    'access_token':token,
 }
 
 r = post('https://api.vk.com/method/ads.getAds',data=params)
-dir(r) #Смотрим какие свойства есть у объекта
-r.text #В text содержится ответ в формате JSON-строки
-loads(r.text) #Переводим JSON строку в словарь
-r.json() #Другой способ
+
+#Смотрим какие свойства есть у объекта
+dir(r) 
+
+#В text содержится ответ в формате JSON-строки
+r.text 
+
+#Переводим JSON строку в словарь
+loads(r.text) 
+
+#Другой способ
+r.json() 
 
 
 '''
