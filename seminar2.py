@@ -103,6 +103,7 @@ def get_ads(account_id = account_id,
 #Запускаем функцию c параметрами по умолчанию
 get_ads()
 
+#Запускаем со своими параметрами
 get_ads(account_id = account_id, client_id =client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0)
 
 #Собираем данные промопостов в список при помощи генератора
