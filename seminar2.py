@@ -98,6 +98,7 @@ def get_ads(account_id = account_id,
     'v':'5.85',
     'access_token': token
     }
+    
     return (loads(post('https://api.vk.com/method/ads.getAds',data=params).text))
 
 #Запускаем функцию c параметрами по умолчанию
