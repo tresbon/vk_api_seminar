@@ -66,6 +66,7 @@ params = {
 r = post('https://api.vk.com/method/ads.getAds',data=params)
 
 #Смотрим какие свойства есть у объекта
+
 dir(r) 
 
 #В text содержится ответ в формате JSON-строки
