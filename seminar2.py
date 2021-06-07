@@ -106,7 +106,12 @@ def get_ads(account_id = account_id,
 get_ads()
 
 #Запускаем со своими параметрами
-get_ads(account_id = account_id, client_id =client_id, campaign_ids='null', ad_ids='null', token=token, include_deleted=0)
+get_ads(account_id = account_id, 
+        client_id =client_id, 
+        campaign_ids='null', 
+        ad_ids='null', 
+        token=token, 
+        include_deleted=0)
 
 #Собираем данные промопостов в список при помощи генератора
 [i['id'] for i in get_ads(1900002052,1604825502)['response'] if i['ad_format']==9]
