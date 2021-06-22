@@ -63,12 +63,12 @@ dict - словарь, набор пар ключ-значение. Ключом
 
 #Создаём переменную с параметрами запроса
 params = {
-    'account_id':account_id,
-    'include_deleted':0,
-    'campaign_ids':'null',
-    'ad_ids':'null',
-    'v':'5.85',
-    'access_token':token,
+    'account_id': account_id,
+    'include_deleted': 0,
+    'campaign_ids': 'null',
+    'ad_ids': 'null',
+    'v': '5.85',
+    'access_token': token,
 }
 
 r = post('https://api.vk.com/method/ads.getAds',data=params)
