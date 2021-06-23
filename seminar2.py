@@ -1,6 +1,6 @@
 # Импортируем библиотеки
 from tokens import token
-from requests import post
+from requests import post, request
 from json import dumps, loads
 import pandas as pd
 
@@ -54,6 +54,11 @@ dict - словарь, набор пар ключ-значение. Ключом
 1:'hello',
 "world":{(1):2}
 }
+
+None - особый тип. Условно можно сказать, что это - отсутствие данных
+None не равен самому себе, то есть None == None даст False
+Для проверки является ли значение None (отсутствует в данных) нужно использовать is, например
+value is None
 """
 
 '''
@@ -63,15 +68,26 @@ dict - словарь, набор пар ключ-значение. Ключом
 
 #Создаём переменную с параметрами запроса
 params = {
-    'account_id': account_id,
+    'account_id': account_id,#Её мы уже создали в само начале
     'include_deleted': 0,
-    'campaign_ids': 'null',
-    'ad_ids': 'null',
+    'campaign_ids': None,
+    'ad_ids': None,
     'v': '5.85',
     'access_token': token,
 }
 
-r = post('https://api.vk.com/method/ads.getAds',data=params)
+#Делаем свой первый запрос к API!11
+r = post('https://api.vk.com/method/ads.getAds',
+         data=params)
+#Просто? Да! Понятно? Если вы не знаете ничего про HTTP - вряд ли
+
+#Давайте раскроем какая магия тут скрыта:
+r = request(
+         method = 'POST', #Используем HTTP метод POST
+         url = 'https://api.vk.com/method/ads.getAds', #Ссылка к которой обращаемся 
+         payload = dumps(params) #GET не позволяет отправлять файлы в параметрах запроса
+)
+
 
 #Смотрим какие свойства есть у объекта
 
