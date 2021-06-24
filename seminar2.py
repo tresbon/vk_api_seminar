@@ -104,7 +104,7 @@ r.json()
 
 
 '''
-Оборачиваем запрос в функцию
+А теперь функции!
 '''
 
 def get_ads(account_id = account_id, 
