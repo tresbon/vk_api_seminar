@@ -77,7 +77,8 @@ params = {
 }
 
 #Делаем свой первый запрос к API!11
-r = post('https://api.vk.com/method/ads.getAds',
+r = post(
+    'https://api.vk.com/method/ads.getAds',
          data=params
         )
 #Просто? Да! Понятно? Если вы не знаете ничего про HTTP - вряд ли
