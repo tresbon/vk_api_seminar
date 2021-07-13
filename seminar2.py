@@ -194,7 +194,7 @@ get_ads()
 #Запускаем со своими параметрами
 get_ads(account_id = account_id, 
         client_id =client_id, 
-        campaign_ids='null', 
+        campaign_ids='null', # Можно вставить None вместо строки 'null'
         ad_ids='null', 
         token=token, 
         include_deleted=0)
