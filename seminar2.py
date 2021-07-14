@@ -291,7 +291,8 @@ class VKAPIRequest():
         'v': self.version,
         'access_token': self.token
         }
-        return self.request('ads.getAds',params=params)
+        return self.request('ads.getAds',
+                            params=params)
     
     def get_demographics(self,
         campaign_ids = 'null', 
@@ -322,16 +323,21 @@ class VKAPIRequest():
         pass
     
     def create_campaigns():
+        """Creates campaigns"""
         pass
     
     def create_lookalike_request():
+        """Creates lookalike audience"""
         pass
     
     def create_target_group():
+        """Creates target group"""
         pass
     
     def create_target_pixel():
+        """Creates target pixel"""
         pass
     
     def get_targeting_stats():
+        """Gets targeting stats"""
         pass
