@@ -5,6 +5,8 @@ from json import dumps, loads
 import pandas as pd
 
 
+
+
 # Назначаем в переменную id аккаунта и клиента
 
 account_id = 1900002052
