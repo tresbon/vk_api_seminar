@@ -13,7 +13,6 @@ account_id = 1900002052
 client_id = 1604825502
 
 
-
 """
 
 account_id - переменная
